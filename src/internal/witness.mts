@@ -10,13 +10,9 @@
 // the contrary claim was. Provenance never enters the kernel — testimony
 // stays at the call site (request traces keep theirs at the trace layer).
 
-import {
-  mark,
-  utterance,
-  type ChargeValueName,
-  type UtteranceCarrier,
-} from "@red-cup-engineering/relating";
-import { chargeNameOfSides } from "@red-cup-engineering/animating/becoming/doing/embodying";
+import type { ChargeValueName, UtteranceCarrier } from "@red-cup-engineering/relating";
+import { mark, utterance } from "../../../../../../../../../../../lenticule-science/services/obsmetrological-services-section/services/articulating-services-section/dist/lib/articulating/index.mjs";
+import { chargeNameOfSides } from "./charge-names.mjs";
 
 export class UtteranceLog {
   readonly #utterances: UtteranceCarrier[];

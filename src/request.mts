@@ -9,8 +9,9 @@
 // founding a world from the utterances is the caller's explicit induction.
 
 import type { IncomingMessage } from "node:http";
-import { mark, utterance, type ChargeValueName, type UtteranceCarrier } from "@red-cup-engineering/relating";
-import { joinKnowledgeNames } from "@red-cup-engineering/animating/becoming/doing/embodying";
+import type { ChargeValueName, UtteranceCarrier } from "@red-cup-engineering/relating";
+import { mark, utterance } from "../../../../../../../../../../lenticule-science/services/obsmetrological-services-section/services/articulating-services-section/dist/lib/articulating/index.mjs";
+import { joinKnowledgeNames } from "./internal/charge-names.mjs";
 
 export type RequestTraceEntry = Readonly<{
   e: unknown;
