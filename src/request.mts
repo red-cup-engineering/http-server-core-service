@@ -10,7 +10,7 @@
 
 import type { IncomingMessage } from "node:http";
 import type { ChargeValueName, UtteranceCarrier } from "@red-cup-engineering/relating";
-import { mark, utterance } from "../../../../../../../../../../lenticule-science/services/obsmetrological-services-section/services/articulating-services-section/dist/lib/articulating/index.mjs";
+import { mark, utterance } from "../../../../../../../../../../lenticule-science/services/semiotics-services-section/services/articulating-services-section/dist/lib/articulating/index.mjs";
 import { joinKnowledgeNames } from "./internal/charge-names.mjs";
 
 export type RequestTraceEntry = Readonly<{
