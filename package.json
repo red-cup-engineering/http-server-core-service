@@ -1,0 +1,116 @@
+{
+  "name": "@red-cup-engineering/http-server-core-service",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "HTTP server core: application types, response representations, routing composition, middleware pipeline, MCP transport, and Node server startup. The bedrock the edge, platform-emulation, observability, and mesh-networking services build on.",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "clean": "rm -rf dist .tmp/test-dist",
+    "check": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run rebuild",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./admission": {
+      "types": "./dist/admission.d.mts",
+      "import": "./dist/admission.mjs"
+    },
+    "./compose": {
+      "types": "./dist/compose.d.mts",
+      "import": "./dist/compose.mjs"
+    },
+    "./compress": {
+      "types": "./dist/compress.d.mts",
+      "import": "./dist/compress.mjs"
+    },
+    "./cookies": {
+      "types": "./dist/cookies.d.mts",
+      "import": "./dist/cookies.mjs"
+    },
+    "./http": {
+      "types": "./dist/http.d.mts",
+      "import": "./dist/http.mjs"
+    },
+    "./mcp": {
+      "types": "./dist/mcp.d.mts",
+      "import": "./dist/mcp.mjs"
+    },
+    "./mount-app": {
+      "types": "./dist/mount-app.d.mts",
+      "import": "./dist/mount-app.mjs"
+    },
+    "./pipeline": {
+      "types": "./dist/pipeline.d.mts",
+      "import": "./dist/pipeline.mjs"
+    },
+    "./problem": {
+      "types": "./dist/problem.d.mts",
+      "import": "./dist/problem.mjs"
+    },
+    "./request": {
+      "types": "./dist/request.d.mts",
+      "import": "./dist/request.mjs"
+    },
+    "./route-admission": {
+      "types": "./dist/route-admission.d.mts",
+      "import": "./dist/route-admission.mjs"
+    },
+    "./serve-scripts": {
+      "types": "./dist/serve-scripts.d.mts",
+      "import": "./dist/serve-scripts.mjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.mts",
+      "import": "./dist/server.mjs"
+    },
+    "./sse": {
+      "types": "./dist/sse.d.mts",
+      "import": "./dist/sse.mjs"
+    },
+    "./static": {
+      "types": "./dist/static.d.mts",
+      "import": "./dist/static.mjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/types.mjs"
+    },
+    "./well-known": {
+      "types": "./dist/well-known.d.mts",
+      "import": "./dist/well-known.mjs"
+    },
+    "./internal/*": {
+      "types": "./dist/internal/*.d.mts",
+      "import": "./dist/internal/*.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@red-cup-engineering/animating": "0.0.2",
+    "@red-cup-engineering/computing-with-http": "0.0.0",
+    "@red-cup-engineering/http-platform-emulation-service": "0.0.1",
+    "@red-cup-engineering/relating": "0.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "eslint": "^10.4.1",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "8.61.0"
+  },
+  "sideEffects": false
+}
