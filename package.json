@@ -100,10 +100,10 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@red-cup-engineering/animating": "0.0.2",
-    "@red-cup-engineering/computing-with-http": "0.0.0",
-    "@red-cup-engineering/http-platform-emulation-service": "0.0.1",
-    "@red-cup-engineering/relating": "0.0.1"
+    "@red-cup-engineering/animating": "workspace:*",
+    "@red-cup-engineering/computing-with-http": "workspace:*",
+    "@red-cup-engineering/computer-web-server": "workspace:*",
+    "@red-cup-engineering/relating": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

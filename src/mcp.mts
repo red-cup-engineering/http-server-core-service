@@ -21,8 +21,8 @@ import {
 } from "@red-cup-engineering/computing-with-http/codecs/mcp";
 
 import { readBody } from "./http.mjs";
-import type { JsonSchema } from "@red-cup-engineering/http-platform-emulation-service/openapi";
-import { validateJsonSchema } from "@red-cup-engineering/http-platform-emulation-service/validation";
+import type { JsonSchema } from "@red-cup-engineering/computer-web-server/openapi";
+import { validateJsonSchema } from "@red-cup-engineering/computer-web-server/validation";
 import type { App, Context, Repr } from "./types.mjs";
 
 export const DEFAULT_PROTOCOL_VERSION = DEFAULT_MCP_PROTOCOL_VERSION;
