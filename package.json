@@ -6,8 +6,7 @@
   "description": "HTTP server core: application types, response representations, routing composition, middleware pipeline, MCP transport, and Node server startup. The bedrock the edge, platform-emulation, observability, and mesh-networking services build on.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/red-cup-engineering/computer-web-engineering-services-section.git",
-    "directory": "services/web-protocol-services-section/services/http-services-section/services/http-server-core-service"
+    "url": "git+https://github.com/red-cup-engineering/http-server-core-service.git"
   },
   "engines": {
     "node": ">=22.18"
