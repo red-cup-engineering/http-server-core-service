@@ -18,85 +18,11 @@
     "prepack": "npm run rebuild",
     "rebuild": "npm run clean && npm run build"
   },
-  "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "files": [
-    "dist",
     "package.json"
   ],
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs"
-    },
-    "./admission": {
-      "types": "./dist/admission.d.mts",
-      "import": "./dist/admission.mjs"
-    },
-    "./compose": {
-      "types": "./dist/compose.d.mts",
-      "import": "./dist/compose.mjs"
-    },
-    "./compress": {
-      "types": "./dist/compress.d.mts",
-      "import": "./dist/compress.mjs"
-    },
-    "./cookies": {
-      "types": "./dist/cookies.d.mts",
-      "import": "./dist/cookies.mjs"
-    },
-    "./http": {
-      "types": "./dist/http.d.mts",
-      "import": "./dist/http.mjs"
-    },
-    "./mcp": {
-      "types": "./dist/mcp.d.mts",
-      "import": "./dist/mcp.mjs"
-    },
-    "./mount-app": {
-      "types": "./dist/mount-app.d.mts",
-      "import": "./dist/mount-app.mjs"
-    },
-    "./pipeline": {
-      "types": "./dist/pipeline.d.mts",
-      "import": "./dist/pipeline.mjs"
-    },
-    "./problem": {
-      "types": "./dist/problem.d.mts",
-      "import": "./dist/problem.mjs"
-    },
-    "./request": {
-      "types": "./dist/request.d.mts",
-      "import": "./dist/request.mjs"
-    },
-    "./route-admission": {
-      "types": "./dist/route-admission.d.mts",
-      "import": "./dist/route-admission.mjs"
-    },
-    "./serve-scripts": {
-      "types": "./dist/serve-scripts.d.mts",
-      "import": "./dist/serve-scripts.mjs"
-    },
-    "./server": {
-      "types": "./dist/server.d.mts",
-      "import": "./dist/server.mjs"
-    },
-    "./sse": {
-      "types": "./dist/sse.d.mts",
-      "import": "./dist/sse.mjs"
-    },
-    "./static": {
-      "types": "./dist/static.d.mts",
-      "import": "./dist/static.mjs"
-    },
-    "./types": {
-      "types": "./dist/types.d.mts",
-      "import": "./dist/types.mjs"
-    },
-    "./well-known": {
-      "types": "./dist/well-known.d.mts",
-      "import": "./dist/well-known.mjs"
-    },
     "./internal/*": {
       "types": "./dist/internal/*.d.mts",
       "import": "./dist/internal/*.mjs"
