@@ -49,7 +49,7 @@ export function routeMethodAllowed(resource: RouteAdmissionResource, method: str
   return !allowed || allowed.includes(method.toUpperCase());
 }
 
-export function routeValidationJudgments(input: RouteAdmissionInput): {
+export function routeAdmissionJudgments(input: RouteAdmissionInput): {
   judgments: readonly RequestAdmissionJudgment[];
   denial: RouteAdmissionDenial;
   allow: string | null;
@@ -130,8 +130,8 @@ export function routeValidationJudgments(input: RouteAdmissionInput): {
   };
 }
 
-export function routeValidationReport(input: RouteAdmissionInput): RouteAdmissionReport {
-  const projection = routeValidationJudgments(input);
+export function routeAdmissionReport(input: RouteAdmissionInput): RouteAdmissionReport {
+  const projection = routeAdmissionJudgments(input);
   const settled = settleRequestTrace(input.trace, projection.judgments);
   return Object.freeze({
     trace: input.trace,

@@ -202,7 +202,7 @@ function exposeMatchedResource(ctx: Context, resource: Resource, params: Record<
   if (resource.name !== undefined) ctx.routeName = resource.name;
 }
 
-function projectRouteValidation(ctx: Context, report: RouteAdmissionReport): void {
+function projectRouteAdmission(ctx: Context, report: RouteAdmissionReport): void {
   const resource = ctx.resource;
   if (resource?.produces?.length) appendVary(ctx.res, "Accept");
   if (resource?.languages?.length) appendVary(ctx.res, "Accept-Language");
@@ -281,33 +281,33 @@ async function handle(app: App, req: IncomingMessage, res: ServerResponse): Prom
     // Settle the request trace through a pure route admission report.
     const accept = joinedHeaderValue(req.headers.accept);
     const acceptLanguage = joinedHeaderValue(req.headers["accept-language"]);
-    const validation = routeAdmissionReport({
+    const admission = routeAdmissionReport({
       trace,
       resource: foundResource,
       method: claimOf(trace, "method") ?? req.method ?? "GET",
       ...(accept !== undefined ? { accept } : {}),
       ...(acceptLanguage !== undefined ? { acceptLanguage } : {}),
     });
-    projectRouteValidation(ctx, validation);
-    const settled = validation.settled;
+    projectRouteAdmission(ctx, admission);
+    const settled = admission.settled;
 
     if (settled.value === "absurd") {
       if (await maybeSendProblem(ctx, 404, "Not Found", problemOptions)) return;
       res.writeHead(404).end("Not Found");
     } else if (settled.value === "active") {
       const method = claimOf(trace, "method") ?? "GET";
-      const allow = validation.allow;
-      if (foundResource && validation.denial === "method" && !routeMethodAllowed(foundResource, method)) {
+      const allow = admission.allow;
+      if (foundResource && admission.denial === "method" && !routeMethodAllowed(foundResource, method)) {
         if (allow) res.setHeader("Allow", allow);
         if (await maybeSendProblem(ctx, 405, "Method Not Allowed", problemOptions, allow ? {
           headers: { Allow: allow },
         } : undefined)) return;
         res.writeHead(405).end("Method Not Allowed");
-      } else if (validation.denial === "accept") {
+      } else if (admission.denial === "accept") {
         appendVary(res, "Accept");
         if (await maybeSendProblem(ctx, 406, "Not Acceptable", problemOptions)) return;
         res.writeHead(406, { "Content-Type": "text/plain; charset=utf-8" }).end("Not Acceptable");
-      } else if (validation.denial === "accept-language") {
+      } else if (admission.denial === "accept-language") {
         appendVary(res, "Accept-Language");
         if (await maybeSendProblem(ctx, 406, "Not Acceptable", problemOptions)) return;
         res.writeHead(406, { "Content-Type": "text/plain; charset=utf-8" }).end("Not Acceptable");
