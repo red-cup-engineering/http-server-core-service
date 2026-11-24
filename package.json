@@ -1,0 +1,51 @@
+{
+  "name": "@red-cup-engineering/http-server-core-service",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "HTTP server core: application types, response representations, routing composition, middleware pipeline, MCP transport, and Node server startup. The bedrock the edge, platform-emulation, observability, and mesh-networking services build on.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/http-server-core-service.git"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "clean": "rm -rf dist .tmp/test-dist",
+    "check": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run rebuild",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "types": "./dist/index.d.mts",
+  "files": [
+    "package.json"
+  ],
+  "exports": {
+    "./internal/*": {
+      "types": "./dist/internal/*.d.mts",
+      "import": "./dist/internal/*.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@red-cup-engineering/computing-with-http": "^0.1.0",
+    "@red-cup-engineering/computer-web-server": "workspace:*",
+    "@red-cup-engineering/metrologic": "^0.22.11",
+    "@red-cup-engineering/signcell": "0.18.0-dev.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "eslint": "^10.4.1",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "8.61.0"
+  },
+  "sideEffects": false,
+  "license": "MIT",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
+  }
+}
