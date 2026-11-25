@@ -30,8 +30,9 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@red-cup-engineering/computing-with-http": "^0.1.0",
     "@red-cup-engineering/computer-web-server": "workspace:*",
+    "@red-cup-engineering/computing-with-http": "^0.1.0",
+    "@red-cup-engineering/cryptographic-computer-data-engineering-services-section": "0.3.8-dev.0",
     "@red-cup-engineering/metrologic": "^0.22.11",
     "@red-cup-engineering/signcell": "0.18.0-dev.0"
   },

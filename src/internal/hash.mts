@@ -1,20 +1,12 @@
 // internal/hash.ts — SHA-1 and SHA-256 helpers for ETags and content addressing.
-import { createHash } from "node:crypto";
-
-export function sha256(data: string | Buffer): Buffer {
-  return createHash("sha256").update(data).digest();
-}
-
-export function sha256hex(data: string | Buffer): string {
-  return createHash("sha256").update(data).digest("hex");
-}
+import { protocolDigestBytes, protocolDigestHex } from "@red-cup-engineering/cryptographic-computer-data-engineering-services-section/hash";
 
 export function sha1(data: string | Buffer): Buffer {
-  return createHash("sha1").update(data).digest();
+  return protocolDigestBytes("sha1", data);
 }
 
 export function sha1hex(data: string | Buffer): string {
-  return createHash("sha1").update(data).digest("hex");
+  return protocolDigestHex("sha1", data);
 }
 
 /** Strong ETag: quoted SHA-1 hex of body content. */
